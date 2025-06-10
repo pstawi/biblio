@@ -75,14 +75,10 @@ router.delete("/deleteClient/:id", (req, res) => {
 
 // route post avec récupération de données
 router.post("/ajoutClient",(req, res) => {
-
-    console.log(req.body);
     // récupération des données envoyées 
     const nom = req.body.nom;
     const prenom = req.body.prenom;
     const mail = req.body.mail;
-
-    console.log(nom, prenom, mail);
     
     //preparation de la requete sql
     const ajoutClient = "INSERT INTO client (nom,prenom,mail) VALUES(?, ?, ?)";

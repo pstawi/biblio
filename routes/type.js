@@ -43,4 +43,19 @@ router.put('/updateType/:id', (req, res) => {
     });
 });
 
+router.delete('/deleteType/:id', (req,res) => {
+    const idType = req.params.id;
+    const deleteTypeById = "DELETE FROM type WHERE idType = ?;";
+    connection.query(deleteTypeById,[idType], (err, result) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.status(200);
+            res.json({
+                message: "Type supprimé avec succès",
+            });
+        }
+    }); 
+})
+
 module.exports = router;
