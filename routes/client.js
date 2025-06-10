@@ -4,7 +4,7 @@ const connection = require('../config/bdd.js');
 
 router.get('/client', (req, res) => {
     // requete sql
-    const getClient = "SELECT nom, prenom, mail FROM client;";
+    const getClient = "SELECT id, nom, prenom, mail FROM client;";
     connection.query(getClient, (err, result) => {
         if(err) {
             console.log(err);
